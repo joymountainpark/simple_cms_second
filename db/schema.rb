@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150805095621) do
   add_index "sections", ["page_id"], name: "index_sections_on_page_id", using: :btree
 
   create_table "subjects", force: :cascade do |t|
-    t.string   "page",       limit: 255
+    t.string   "name",       limit: 255
     t.integer  "position",   limit: 4
     t.boolean  "visible",                default: false
     t.datetime "created_at",                             null: false

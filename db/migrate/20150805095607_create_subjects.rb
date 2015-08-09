@@ -2,7 +2,7 @@ class CreateSubjects < ActiveRecord::Migration
 
   def up
     create_table :subjects do |t|
-    	t.string "page"
+    	t.string "name"
     	t.integer "position"
     	t.boolean "visible", :default => false
       t.timestamps null: false
