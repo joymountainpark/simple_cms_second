@@ -20,6 +20,7 @@ class SubjectsController < ApplicationController
     # Save the object
     if @subject.save
       # If save succeeds, redirect to the index action
+      flash[:notice] = "Subject '#{@subject.name}' created successfully."
       redirect_to(:action => 'index')
     else
       # If save fails, redisplay the form so user can fix problems
@@ -37,8 +38,9 @@ class SubjectsController < ApplicationController
     # Update the object
       if @subject.update_attributes(subject_params)
       # If update succeeds, redirect to the index action
+      flash[:notice] = "Subject '#{@subject.name}' updated successfully."
       redirect_to(:action => 'show', :id => @subject.id)
-    else
+      else
       # If s fails, redisplay the form so user can fix problems
       render('edit')
     end
@@ -50,6 +52,7 @@ class SubjectsController < ApplicationController
 
   def destroy
     subject = Subject.find(params[:id]).destroy
+    flash[:notice] = "Subject '#{subject.name}' destroyed successfully."
     redirect_to(:action => 'index')
   end
 
@@ -58,7 +61,7 @@ class SubjectsController < ApplicationController
     def subject_params
       # same as using "params[:subject]", except that it:
       # - raises an error if :subject is not present
-      # - allows listed attributes to be ass-assigned
+      # - allows listed attributes to be mass-assigned
       params.require(:subject).permit(:name, :position, :visible)
     end
 
