@@ -1,0 +1,43 @@
+<h2>Number to Currency</h2>
+<%= number_to_currency(340.5) %>
+<br />
+<%= number_to_currency(34.5, :precision => 0, 
+		:unit => "won", :format => "%n %u") %>
+
+<h2>Number to Percentage</h2>
+<%= number_to_percentage(34.5) %>
+<br />
+<%= number_to_percentage(34.5,
+		:precision => 1, :separator => '^') %>
+
+<h2>Number with Precision</h2>
+<%= number_with_precision(34.56789) %>
+<br />
+<%= number_with_precision(34.56789, :precision => 6) %>
+<br />
+<p>** also known as "number_to_round"**</p>
+
+<h2>Number with Delimiter</h2>
+<%= number_with_delimiter(3456789) %>
+<br />
+<%= number_with_delimiter(3456789, :delimiter => ' * ') %>
+<p>** also known as "number_to_delimited" **</p>
+
+<h2>Number to Human</h2>
+<%= number_to_human(123456789) %>
+<br />
+<%= number_to_human(123456789, :precision => 5) %>
+
+<h2>Number to Human Size</h2>
+<%= number_to_human_size(123456789) %>
+<br />
+<%= number_to_human_size(123456789, :precision => 2) %>
+
+<h2>Number to Phone</h2>
+<%= number_to_phone(1234567890) %>
+<br />
+<%= number_to_phone(1234567890,
+		:area_code => true,
+		:delimiter => ' ',
+		:country_code => 1,
+		:extension => '321') %>
