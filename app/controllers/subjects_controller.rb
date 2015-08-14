@@ -12,6 +12,7 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new({:name => "Default"})
+    @subject_count = Subject.count + 1
   end
 
   def create
@@ -24,12 +25,14 @@ class SubjectsController < ApplicationController
       redirect_to(:action => 'index')
     else
       # If save fails, redisplay the form so user can fix problems
+      @subject_count = Subject.count + 1
       render('new')
     end
   end
 
   def edit
     @subject = Subject.find(params[:id])
+    @subject_count = Subject.count
   end
 
   def update
@@ -37,14 +40,15 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     # Update the object
       if @subject.update_attributes(subject_params)
-      # If update succeeds, redirect to the index action
-      flash[:notice] = "Subject '#{@subject.name}' updated successfully."
-      redirect_to(:action => 'show', :id => @subject.id)
+        # If update succeeds, redirect to the index action
+        flash[:notice] = "Subject '#{@subject.name}' updated successfully."
+        redirect_to(:action => 'show', :id => @subject.id)
       else
-      # If s fails, redisplay the form so user can fix problems
-      render('edit')
+        # If s fails, redisplay the form so user can fix problems
+        @subject_count = Subject.count
+        render('edit')
+      end
     end
-  end
 
   def delete
     @subject = Subject.find(params[:id])
