@@ -1,0 +1,38 @@
+<h2>DateTime calculations from Time.now</h2>
+<%= Time.now + 30.days - 23.minutes %><br />
+<%= 30.days.from_now - 23.minutes %><br />
+<%= Time.now.last_year.end_of_month.beginning_of_day %><br />
+<%= Time.now.tomorrow.end_of_day %><br />
+<%= Time.now.last_week.beginning_of_week %><br />
+<p>db format: <%= Time.now.to_s(:db) %></p>
+<p>number format: <%= Time.now.to_s(:number) %></p>
+<p>time format: <%= Time.now.to_s(:time) %></p>
+<p>short format: <%= Time.now.to_s(:short) %></p>
+<p>long format: <%= Time.now.to_s(:long) %></p>
+<p>long_ordinal format: <%= Time.now.to_s(:long_ordinal) %></p>
+
+<h2>Ruby DateTime formatting</h2>
+<%= Time.now.strftime("%B %d, %Y %H:%M %Z") %>
+<p>Day<br /> 
+	 %a - The abbreviated weekday name("Sun")<br />
+   %A - The full weekday name("Sunday")</p>
+
+<p>Date<br /> 
+   %d - Day of the month(01..31)</p>
+
+<p>Month<br />
+	 %b - The abbreviated month name("Jan")<br />
+	 %B - The full month name("January")<br />
+	 %m - Month of the year(01..12)</p>
+
+<p>Year<br />
+	 %y - Year without a century (00..99)<br />
+	 %Y - Year with century</p>
+
+<p>Time<br />
+	 %H - Hour of the day, 24-hour clock(00..23)<br />
+	 %I - Hour of the day, 12-hour clock(01..12)<br />
+	 %M - Minute of the hour(00..59) <br />
+	 %S - Second of the minute(00..60)<br />
+	 %p - Medirian indicator ("AM" or "PM")<br />
+	 %Z - Time zone name</p>
