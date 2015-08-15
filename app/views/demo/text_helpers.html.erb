@@ -36,13 +36,13 @@ text = "This is some long sample text. It includes line breaks\n and double-line
 <%= pluralize(2, 'product') %><br />
 <br />
 <% [0, 1, 20].each do |n| %>
-<%= pluralize(n, 'product') %><br />
-<%= pluralize(n, 'octopus') %><br />
-<%= pluralize(n, 'snipe', 'snope') %><br />
+  <%= pluralize(n, 'product') %><br />
+  <%= pluralize(n, 'octopus') %><br />
+  <%= pluralize(n, 'snipe', 'snope') %><br />
 <% end %>
 <hr />
 
 <h2>cycle</h2>
 <% 5.times do %>
-<%= cycle('red', 'green', 'blue') %><br />
+  <%= cycle('red', 'green', 'blue') %><br />
 <% end %>
